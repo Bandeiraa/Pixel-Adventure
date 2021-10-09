@@ -1,0 +1,165 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://scripts/interface/interface.gd" type="Script" id=2]
+[ext_resource path="res://assets/interface/mobile_ui/right_arrow.png" type="Texture" id=3]
+[ext_resource path="res://assets/interface/mobile_ui/jump_arrow.png" type="Texture" id=4]
+[ext_resource path="res://assets/interface/mobile_ui/left_arrow.png" type="Texture" id=5]
+[ext_resource path="res://assets/interface/mobile_ui/left_arrow_pressed.png" type="Texture" id=6]
+[ext_resource path="res://assets/interface/mobile_ui/right_arrow_pressed.png" type="Texture" id=7]
+[ext_resource path="res://assets/interface/mobile_ui/jump_arrow_pressed.png" type="Texture" id=8]
+[ext_resource path="res://assets/interface/mobile_ui/expand_button.png" type="Texture" id=9]
+[ext_resource path="res://assets/interface/mobile_ui/expand_button_pressed.png" type="Texture" id=10]
+[ext_resource path="res://assets/interface/mobile_ui/look_down_pressed.png" type="Texture" id=11]
+[ext_resource path="res://assets/interface/mobile_ui/look_down.png" type="Texture" id=12]
+[ext_resource path="res://assets/interface/mobile_ui/look_up.png" type="Texture" id=13]
+[ext_resource path="res://assets/interface/mobile_ui/look_up_pressed.png" type="Texture" id=14]
+[ext_resource path="res://scripts/interface/radial_menu.gd" type="Script" id=15]
+[ext_resource path="res://assets/interface/button/restart/normal.png" type="Texture" id=16]
+[ext_resource path="res://assets/interface/button/previous/normal.png" type="Texture" id=17]
+[ext_resource path="res://assets/interface/button/next/normal.png" type="Texture" id=18]
+[ext_resource path="res://assets/interface/button/previous/disabled.png" type="Texture" id=19]
+[ext_resource path="res://assets/interface/button/previous/pressed.png" type="Texture" id=20]
+[ext_resource path="res://assets/interface/button/next/disabled.png" type="Texture" id=21]
+[ext_resource path="res://assets/interface/button/next/pressed.png" type="Texture" id=22]
+[ext_resource path="res://assets/interface/button/restart/disabled.png" type="Texture" id=23]
+[ext_resource path="res://assets/interface/button/restart/pressed.png" type="Texture" id=24]
+[ext_resource path="res://assets/interface/font/8px_font.ttf" type="DynamicFontData" id=25]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 25 )
+
+[node name="Interface" type="CanvasLayer" groups=[
+"Interface",
+]]
+script = ExtResource( 2 )
+
+[node name="MobileButtons" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TouchScreenButton" parent="MobileButtons"]
+position = Vector2( 14, 150 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 6 )
+action = "ui_left"
+
+[node name="Right" type="TouchScreenButton" parent="MobileButtons"]
+position = Vector2( 56, 150 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 7 )
+action = "ui_right"
+
+[node name="Jump" type="TouchScreenButton" parent="MobileButtons"]
+position = Vector2( 342, 150 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 8 )
+action = "ui_select"
+
+[node name="RadialMenu" type="TextureButton" parent="MobileButtons"]
+margin_left = 342.0
+margin_top = 14.0
+margin_right = 356.0
+margin_bottom = 28.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Control" parent="MobileButtons/RadialMenu"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LookUp" type="TouchScreenButton" parent="MobileButtons/RadialMenu/Buttons"]
+normal = ExtResource( 13 )
+pressed = ExtResource( 14 )
+action = "ui_up"
+
+[node name="LookDown" type="TouchScreenButton" parent="MobileButtons/RadialMenu/Buttons"]
+normal = ExtResource( 12 )
+pressed = ExtResource( 11 )
+action = "ui_down"
+
+[node name="Tween" type="Tween" parent="MobileButtons/RadialMenu"]
+
+[node name="InterfaceButtons" type="HBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -35.5
+margin_top = -32.0
+margin_right = 35.5
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Previous" type="TextureButton" parent="InterfaceButtons" groups=[
+"Interface_Button",
+]]
+margin_right = 21.0
+margin_bottom = 22.0
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 20 )
+texture_disabled = ExtResource( 19 )
+
+[node name="Restart" type="TextureButton" parent="InterfaceButtons" groups=[
+"Interface_Button",
+]]
+margin_left = 25.0
+margin_right = 46.0
+margin_bottom = 22.0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 24 )
+texture_disabled = ExtResource( 23 )
+
+[node name="Next" type="TextureButton" parent="InterfaceButtons" groups=[
+"Interface_Button",
+]]
+margin_left = 50.0
+margin_right = 71.0
+margin_bottom = 22.0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 22 )
+texture_disabled = ExtResource( 21 )
+
+[node name="WaitTime" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 10.0
+margin_right = 20.0
+margin_bottom = 9.0
+rect_min_size = Vector2( 40, 9 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 0
+text = "9:59"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MobileButtons/RadialMenu" to="MobileButtons/RadialMenu" method="on_button_pressed"]
+[connection signal="tween_all_completed" from="MobileButtons/RadialMenu/Tween" to="MobileButtons/RadialMenu" method="on_tween_completed"]

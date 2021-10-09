@@ -1,0 +1,355 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://scenes/tile/background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/interface/text/game_name.png" type="Texture" id=2]
+[ext_resource path="res://assets/interface/button/play/normal.png" type="Texture" id=3]
+[ext_resource path="res://assets/interface/button/volume/on.png" type="Texture" id=4]
+[ext_resource path="res://assets/interface/button/settings/normal.png" type="Texture" id=5]
+[ext_resource path="res://scripts/interface/main_menu.gd" type="Script" id=6]
+[ext_resource path="res://assets/interface/button/play/pressed.png" type="Texture" id=7]
+[ext_resource path="res://assets/interface/button/volume/on_pressed.png" type="Texture" id=8]
+[ext_resource path="res://assets/interface/button/settings/pressed.png" type="Texture" id=9]
+[ext_resource path="res://assets/interface/button/level/normal.png" type="Texture" id=10]
+[ext_resource path="res://assets/interface/button/level/pressed.png" type="Texture" id=11]
+[ext_resource path="res://assets/interface/button/back/pressed.png" type="Texture" id=12]
+[ext_resource path="res://assets/interface/button/back/normal.png" type="Texture" id=13]
+[ext_resource path="res://assets/interface/button/quit/normal.png" type="Texture" id=14]
+[ext_resource path="res://assets/interface/button/quit/pressed.png" type="Texture" id=15]
+[ext_resource path="res://assets/interface/button/level/disabled.png" type="Texture" id=16]
+[ext_resource path="res://assets/interface/level/7/normal.png" type="Texture" id=17]
+[ext_resource path="res://assets/interface/level/3/normal.png" type="Texture" id=18]
+[ext_resource path="res://assets/interface/level/6/normal.png" type="Texture" id=19]
+[ext_resource path="res://assets/interface/level/9/normal.png" type="Texture" id=20]
+[ext_resource path="res://assets/interface/level/10/normal.png" type="Texture" id=21]
+[ext_resource path="res://assets/interface/level/5/normal.png" type="Texture" id=22]
+[ext_resource path="res://assets/interface/level/4/normal.png" type="Texture" id=23]
+[ext_resource path="res://assets/interface/level/8/normal.png" type="Texture" id=24]
+[ext_resource path="res://assets/interface/level/1/normal.png" type="Texture" id=25]
+[ext_resource path="res://assets/interface/level/2/normal.png" type="Texture" id=26]
+[ext_resource path="res://assets/interface/level/1/pressed.png" type="Texture" id=27]
+[ext_resource path="res://assets/interface/level/2/pressed.png" type="Texture" id=28]
+[ext_resource path="res://assets/interface/level/3/pressed.png" type="Texture" id=29]
+[ext_resource path="res://assets/interface/level/4/pressed.png" type="Texture" id=30]
+[ext_resource path="res://assets/interface/level/5/pressed.png" type="Texture" id=31]
+[ext_resource path="res://assets/interface/level/6/pressed.png" type="Texture" id=32]
+[ext_resource path="res://assets/interface/level/7/pressed.png" type="Texture" id=33]
+[ext_resource path="res://assets/interface/level/8/pressed.png" type="Texture" id=34]
+[ext_resource path="res://assets/interface/level/10/disabled.png" type="Texture" id=35]
+[ext_resource path="res://assets/interface/level/10/pressed.png" type="Texture" id=36]
+[ext_resource path="res://assets/interface/level/9/disabled.png" type="Texture" id=37]
+[ext_resource path="res://assets/interface/level/8/disabled.png" type="Texture" id=38]
+[ext_resource path="res://assets/interface/level/7/disabled.png" type="Texture" id=39]
+[ext_resource path="res://assets/interface/level/6/disabled.png" type="Texture" id=40]
+[ext_resource path="res://assets/interface/level/5/disabled.png" type="Texture" id=41]
+[ext_resource path="res://assets/interface/level/4/disabled.png" type="Texture" id=42]
+[ext_resource path="res://assets/interface/level/3/disabled.png" type="Texture" id=43]
+[ext_resource path="res://assets/interface/level/2/disabled.png" type="Texture" id=44]
+[ext_resource path="res://scripts/interface/level_grid.gd" type="Script" id=45]
+
+[sub_resource type="Animation" id=1]
+resource_name = "begin"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Container/GameName:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 159.5, -300 ), Vector2( 159.5, 45 ), Vector2( 159.5, 25 ), Vector2( 159.5, 45 ), Vector2( 159.5, 40 ), Vector2( 159.5, 45 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "show_button"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MenuContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Quit:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+
+[node name="Container" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameName" type="TextureRect" parent="Container"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.5
+margin_top = -396.0
+margin_right = 32.5
+margin_bottom = -356.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 32.5, 20 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+autoplay = "begin"
+anims/begin = SubResource( 1 )
+anims/show_button = SubResource( 2 )
+
+[node name="MenuContainer" type="HBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.5
+margin_top = -11.0
+margin_right = 35.5
+margin_bottom = 11.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="TextureButton" parent="MenuContainer" groups=[
+"Button",
+]]
+margin_right = 21.0
+margin_bottom = 22.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="TextureButton" parent="MenuContainer" groups=[
+"Button",
+]]
+margin_left = 25.0
+margin_right = 46.0
+margin_bottom = 22.0
+disabled = true
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_disabled = ExtResource( 16 )
+
+[node name="Settings" type="TextureButton" parent="MenuContainer" groups=[
+"Button",
+]]
+margin_left = 50.0
+margin_right = 71.0
+margin_bottom = 22.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
+
+[node name="SettingsContainer" type="HBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.5
+margin_top = -11.0
+margin_right = 10.5
+margin_bottom = 11.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Volume" type="TextureButton" parent="SettingsContainer" groups=[
+"Button",
+]]
+margin_right = 21.0
+margin_bottom = 22.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 8 )
+
+[node name="Back" type="TextureButton" parent="SettingsContainer" groups=[
+"Button",
+]]
+margin_left = 25.0
+margin_right = 40.0
+margin_bottom = 22.0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+
+[node name="Quit" type="TextureButton" parent="." groups=[
+"Button",
+]]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -25.0
+margin_top = 10.0
+margin_right = -15.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelsContainer" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.5
+margin_top = -13.0
+margin_right = 55.5
+margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="LevelsContainer"]
+margin_right = 111.0
+margin_bottom = 38.0
+columns = 5
+script = ExtResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level1" type="TextureButton" parent="LevelsContainer/Grid"]
+margin_right = 19.0
+margin_bottom = 17.0
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 27 )
+
+[node name="level2" type="TextureButton" parent="LevelsContainer/Grid"]
+margin_left = 23.0
+margin_right = 42.0
+margin_bottom = 17.0
+disabled = true
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 28 )
+texture_disabled = ExtResource( 44 )
+
+[node name="level3" type="TextureButton" parent="LevelsContainer/Grid"]
+margin_left = 46.0
+margin_right = 65.0
+margin_bottom = 17.0
+disabled = true
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 29 )
+texture_disabled = ExtResource( 43 )
+
+[node name="level4" type="TextureButton" parent="LevelsContainer/Grid"]
+margin_left = 69.0
+margin_right = 88.0
+margin_bottom = 17.0
+disabled = true
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 30 )
+texture_disabled = ExtResource( 42 )
+
+[node name="level5" type="TextureButton" parent="LevelsContainer/Grid"]
+margin_left = 92.0
+margin_right = 111.0
+margin_bottom = 17.0
+disabled = true
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 31 )
+texture_disabled = ExtResource( 41 )
+
+[node name="level6" type="TextureButton" parent="LevelsContainer/Grid"]
+margin_top = 21.0
+margin_right = 19.0
+margin_bottom = 38.0
+disabled = true
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 32 )
+texture_disabled = ExtResource( 40 )
+
+[node name="level7" type="TextureButton" parent="LevelsContainer/Grid"]
+margin_left = 23.0
+margin_top = 21.0
+margin_right = 42.0
+margin_bottom = 38.0
+disabled = true
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 33 )
+texture_disabled = ExtResource( 39 )
+
+[node name="level8" type="TextureButton" parent="LevelsContainer/Grid"]
+margin_left = 46.0
+margin_top = 21.0
+margin_right = 65.0
+margin_bottom = 38.0
+disabled = true
+texture_normal = ExtResource( 24 )
+texture_pressed = ExtResource( 34 )
+texture_disabled = ExtResource( 38 )
+
+[node name="level9" type="TextureButton" parent="LevelsContainer/Grid"]
+margin_left = 69.0
+margin_top = 21.0
+margin_right = 88.0
+margin_bottom = 38.0
+disabled = true
+texture_normal = ExtResource( 20 )
+texture_disabled = ExtResource( 37 )
+
+[node name="level10" type="TextureButton" parent="LevelsContainer/Grid"]
+margin_left = 92.0
+margin_top = 21.0
+margin_right = 111.0
+margin_bottom = 38.0
+disabled = true
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 36 )
+texture_disabled = ExtResource( 35 )
+
+[node name="HContainer" type="HBoxContainer" parent="LevelsContainer"]
+margin_top = 42.0
+margin_right = 111.0
+margin_bottom = 58.0
+custom_constants/separation = 0
+
+[node name="Margin" type="Control" parent="LevelsContainer/HContainer"]
+margin_right = 48.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 48, 0 )
+
+[node name="Back" type="TextureButton" parent="LevelsContainer/HContainer" groups=[
+"Button",
+]]
+margin_left = 48.0
+margin_right = 63.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+
+[connection signal="animation_finished" from="Animation" to="." method="on_animation_finished"]

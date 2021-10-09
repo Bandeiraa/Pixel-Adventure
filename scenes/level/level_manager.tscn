@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/tile/floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interactable/checkpoint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/level/level_camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interface/interface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/tile/background.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/interactable/start.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/management/level_controller.gd" type="Script" id=7]
+
+[node name="LevelManager" type="Node2D" groups=[
+"Level",
+]]
+script = ExtResource( 7 )
+
+[node name="Floor" parent="." instance=ExtResource( 1 )]
+collision_mask = 0
+
+[node name="Background" parent="." instance=ExtResource( 5 )]
+
+[node name="Checkpoint" parent="." instance=ExtResource( 2 )]
+
+[node name="Start" parent="." instance=ExtResource( 6 )]
+can_interact = true
+
+[node name="Camera" parent="." instance=ExtResource( 3 )]
+
+[node name="Interface" parent="." instance=ExtResource( 4 )]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MaxFallHeight" type="Node2D" parent="."]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/interface/sound_gui.gd" type="Script" id=1]
+[ext_resource path="res://assets/interface/text/song_text/red carpet wooden floor.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "show_song"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("SongText:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5, -25 ), Vector2( 5, 5 ), Vector2( 5, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SongText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="SoundGUI" type="Control" groups=[
+"Sound Interface",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SongText" type="TextureRect" parent="."]
+margin_left = 5.0
+margin_top = -25.0
+margin_right = 156.0
+margin_bottom = -15.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/show_song = SubResource( 1 )
